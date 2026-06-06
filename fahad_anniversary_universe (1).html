@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happy Anniversary Fahad ❤️</title>
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#050816,#1a1b3a,#3b1452);
+color:white;
+overflow-x:hidden;
+}
+.container{
+max-width:800px;
+margin:40px auto;
+padding:25px;
+text-align:center;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+border-radius:25px;
+}
+h1{color:#ff6ca8;}
+.hidden{display:none;}
+
+#btnArea{
+position:relative;
+height:120px;
+margin-top:20px;
+}
+
+button{
+padding:12px 22px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+font-size:16px;
+}
+
+.yes{
+background:#ff6ca8;
+color:white;
+}
+
+.no{
+position:absolute;
+background:#ddd;
+}
+
+.stars{
+position:fixed;
+inset:0;
+background-image:
+radial-gradient(2px 2px at 20px 30px, white, transparent),
+radial-gradient(2px 2px at 200px 120px, white, transparent),
+radial-gradient(1px 1px at 300px 250px, white, transparent);
+background-size:400px 400px;
+animation:move 20s linear infinite;
+opacity:0.7;
+}
+
+@keyframes move{
+from{transform:translateY(0);}
+to{transform:translateY(400px);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="container">
+
+<div id="start">
+<h1>Happy Anniversary, Fahad ❤️</h1>
+<p>
+You once told me your dream is to go to space...<br>
+so until we reach the stars, can we keep exploring life together? 🌌
+</p>
+
+<h3>Days of choosing each other: 7:30 ❤️</h3>
+
+<button onclick="start()">Start Our Universe 🚀</button>
+</div>
+
+<div id="quiz" class="hidden">
+
+<h2 id="q"></h2>
+
+<div id="btnArea">
+<button class="yes" onclick="next()">Yes 💖</button>
+<button class="no" id="noBtn">No 😅</button>
+</div>
+
+</div>
+
+<div id="end" class="hidden">
+<h1>✨ Proposal Accepted ✨</h1>
+<p>
+You said YES to every question… just like I always knew you would ❤️
+</p>
+
+<h3>
+Thank you for choosing me in this universe and every one beyond 🌌
+</h3>
+
+<p>
+Mission status: Forever together 🚀💍
+</p>
+</div>
+
+</div>
+
+<script>
+
+const questions=[
+"Will you take me on cute dates? 🌹",
+"Will you buy me flowers sometimes? 💐",
+"Will you roam the world with me? 🌍",
+"Will you always take care of me? ❤️",
+"Will you make memories with me among the stars? ✨",
+"Will you keep choosing me every day? 🥹"
+];
+
+let i=0;
+
+function start(){
+document.getElementById("start").classList.add("hidden");
+document.getElementById("quiz").classList.remove("hidden");
+load();
+}
+
+function load(){
+document.getElementById("q").innerText=questions[i];
+}
+
+function next(){
+i++;
+if(i>=questions.length){
+document.getElementById("quiz").classList.add("hidden");
+document.getElementById("end").classList.remove("hidden");
+}
+else load();
+}
+
+const noBtn=document.getElementById("noBtn");
+
+function moveNo(){
+const area=document.getElementById("btnArea");
+noBtn.style.left=Math.random()*(area.clientWidth-80)+"px";
+noBtn.style.top=Math.random()*60+"px";
+}
+
+noBtn.addEventListener("mouseover",moveNo);
+noBtn.addEventListener("click",moveNo);
+
+</script>
+
+</body>
+</html>
